@@ -1,0 +1,52 @@
+////////////// modification/annulation de commit /////////////////////
+
+Modifier le message du dernier commit avec :
+	`git commit --amend`
+
+Annuler les effets du dernier commit (HEAD désigne le dernier commit)
+	git revert HEAD
+	Afficher l'historique et observer
+	
+	NB : pour créer un commit qui annule plusieurs commits : `git revert c1 c2 cn`
+		 pour créer un commit qui annule un commit donnée jusquu'à un autre `git revert c1...c4
+	
+Annuler le commit précédent en gardant les modifications du commit dans l'index et en gardant les modifications du repertoire de travail :
+	`git reset --soft HEAD~1`
+	
+NB : HEAD~1 => le commit précédent (juste avant le dernier commit)
+	 HEAD~2 => le commit avant les deux derniers commits, etc ...
+	 on peut utiliser le hash d'un commit : `git reset --soft ef535j`
+	 
+	
+Afficher l'historique et observer
+	
+Committer de nouveau le fichier test.txt
+
+Annuler le dernier commit en gardant les modifications dans le repertoire de travail (les modifications du commit sont perdus)
+	`git reset --mixed HEAD~1`
+	
+Afficher l'historique et observer
+
+Ajouter le fichier test.txt dans l'index et le commiter
+
+Annuler le dernier commit et les modifications l'index et le repertoire de travail :
+	`git reset --hard HEAD~1`
+	
+Vérifiez l'état du dépôt et les logs
+
+Bonnes pratiques d'un commit :
+	premiere ligne => description courte du commit
+	ensuite une ligne
+	et enfin une description détaillée du pourquoi du changement
+	
+////////////////// Annulation d'un git reset //////////////////
+
+Afficher l'historique git et observer bien le resultat
+
+Parcourir l'historique des déplacements du curseur git (HEAD) : 
+	git reflog
+	
+Idfentifier un commit supprimé par erreur et revenir à ce commit avec :
+	git reset --hard HASH_DU_COMMIT
+	
+Afficher l'historique git et comparer avec le premier resultat
