@@ -1,0 +1,17 @@
+ ///////////////// commit sur plusieurs lignes ///////////////////
+
+ Configurer l'editeur des messages commits avec votre éditeur préféré :
+ 	`git config --global core.editor nano`
+ 	`git config --global core.editor "mate -w"` => avec macos, utilisation de Textmate
+
+ Modifier une fichier test.txt avec un texte quelconque et executer :
+ 	 `git commit`
+	 
+ Modifier le message du dernier commit avec :
+ 	`git commit --amend`
+	
+ NB : quelques raccourcis 
+ 	`git commit -a`=> permet de comitter un fichier sans ajout préalable dans l'index
+ 	`git add --all` => permet d'ajouter tous les fichiers suivis par git et modifiés dans l'index (avec parcimonie)
+ 	`git add -p`=> choisir les parties des fichiers à mettre dans l'index
+	
