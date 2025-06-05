@@ -1,0 +1,37 @@
+///////////////// gestion des dossier avec git ////////////////////
+
+Se placer sur le dossier exo1 et créer un sous dossier monDossier (avec l'explorateur windows ou en ligne de commande)
+
+Executer `git status`et observer
+
+Ajouter un fichier file.txt (avec un contenu quelconque) dans le dossier monDossier :
+	echo 'tralalala' > MonDossier/file.txt
+	
+Executer `git status`et observer
+
+Supprimer le dossier monDossier d'un point de vue git et observer le resultat:
+	`git rm monDossier`
+	
+Versionner le contenu dossier et observer la sortie :
+	`git add monDossier/`
+
+Enlever le contenu du dossier monDossier de git et observer la sortie de `git status`
+
+Supprimer le dossier monDossier et observer le resultat :
+	`git rm monDossier`
+	
+	Ajouter l'option -r : `git rm -r monDossier` et observer la sortie
+	
+	Ajouter l'option -f : `git rm -rf monDossier` et observer la sortie
+	
+Ajouter un autre dossier "folder" avec deux fichiers file1 et file2 et comitter les
+
+Essayer de supprimmer de le dossier "folder" avec `git rm folder`et corriger jusqu'a la suppression
+	Noter la différence 
+	
+Ajouter un dossier folder2 avec un fichier file dedans; committer ce fichier sur git 
+	modifier le contenu du fichier file dans le dossier folder2 et essayer de supprimer jusqu'a aboutissement
+	
+Tester et comparer `git rm`et `git rm --cached
+	
+Tester le renommage/deplacement de fichiers directement dans le système de fichiers et avec l'utilisation de `git mv. Observer les changements
