@@ -1,0 +1,72 @@
+////////////////// Visualisation de l'historique ////////////////
+
+Utiliser git log pour afficher l'historique des commits
+
+Utiliser `git show HASH_DU_COMMIT`pour visualiser les détails d'un commit en particulier
+
+Installation de gitk et visualiser l'historique avec 
+
+Installer gitg et visualiser l'historique avec 
+
+Explorer les différences entre des commits avec `git diff <commit1> <commit2>`sur la console
+
+	HEAD désigne le commit actif
+	HEAD~ ou  HEAD~1 => parent du commit actif
+	HEAD~2 grand parent du commit actif
+	...
+	
+Afficher les logs selon l'auteur des commits :
+	git log --author="naby"
+	
+Afficher les changements apportés par chaque commit 
+	git log --patch
+	git log ID_COMMIT --patch => pour voir les changements pour un commit donné
+	git log --patch -- test.txt => pour voir les changements pour un fichier donné
+	
+Afficher les logs en une seule ligne par log :
+	git log --oneline
+	
+Afficher les logs en graphe (pour les liens entre branches)
+	git log --graph --oneline
+
+Afficher les logs avec des statistiques sur les fichiers modifiés
+	git log --stat
+	
+Personnaliser le format des logs (documenation https://git-scm.com/docs/pretty-formats)
+	`git log --pretty=format:"%h - %an, %ar : %s" `
+	
+		%h : Hash abrégé du commit
+		%an : Auteur du commit
+		%ar : Date relative du commit (par exemple "2 jours ago")
+		%s : Message du commit
+
+Afficher l'historique pour un fichier en particulier 
+	git log -- test.txt
+
+Rechercher des mots dans les messages de commits 
+	git log --grep="mot-a-chercher"
+	git log --grep="ajout" -i
+	git log --grep="ajout|modification"
+	
+Limiter le nombre de logs 
+	git log -n 3
+
+Afficher l'historique sur une branche donnée 
+	git log ma-branche
+	git log main -- test.txt => historique du fichier test.txt sur la branche main
+	
+TP : 
+	Afficher les commits qui ont le mot clé "gitignore" et les changements des fichiers concernés
+	
+/////////////// visualisation des auteurs des modifications ligne par ligne avec git blame /////////////////
+
+Visualiser qui a modifié chaque ligne d'un fichier :
+	`git blame test.txt`
+	
+Limiter l'affichage à un sous ensemble de lignes :
+		`git blame -L 10,20 test.txt`
+		
+Option pour afficher l'email des editeurs :
+	--show-email ou -e
+	
+NB : `git annotate` est l'ancienne commande utilisée avant `git blame`

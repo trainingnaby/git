@@ -1,0 +1,64 @@
+
+/////////////////// gitignore /////////////////
+
+Définir les fichiers/répertoires à ne pas versionner par git
+fichier .gitignore à placer à la racine
+
+Syntaxe :
+	ignorer fichiers avec extension :
+		*.log
+		
+	ignorer des répertoires
+		build/
+		temp/
+		
+	Exclure un fichier faisant déja partie d'une règle
+		*.log
+		!important.log
+	
+
+Créer un fichier .gitignore dans votre projet et y mettre les fichiers à ignorer relatifs à votre ide et type de projet
+
+Tester pour inclure un fichier important.log dans git alors qu'on a une rule pour ne pas versionner les fichiers .log
+
+
+/////////////// gitignore global ////////////////
+
+Utile pour ignorer des fichiers générés par l'OS par exemple (Thumbs.db sur Windows, .DS_Store sur macOS ...)
+
+configurer globalement le fichier :
+
+	git config --global core.excludesFile ~/.gitignore_global
+	
+Ajouter les règles relatifs à votre OS dans le fichier global
+
+Tester
+
+///////////// ignorer un fichier déjà dans l'historique ////////////
+
+Ajouter un nouveay dans l'index et commiter le
+avec l'aide de git rm et gitignore, supprimer le fichier du suivi git sans le supprimer du système de fichier
+
+//////////// plusieurs .gitgnore pour des sous projets ////////////
+
+Créer deux dossiers dans votre projet git et mettre pour chaque dossier un fichier .gitignore
+
+Garder le fichier .gitignore à la racine 
+
+Mettre des règles sur les différents gitignore et tester que ça fonctionne bien en appliquant les règles pour chaque dossier
+
+
+
+
+
+
+
+
+	
+	
+	
+
+	
+
+	
+
