@@ -1,0 +1,16 @@
+///////////////////// git help ///////////////////////
+
+Tester les commandes :
+
+	`git help` 
+	`git help -a`
+	`git help status`
+	`git help checkout`
+	`git help reset`
+	`git mv -h`
+	`git commit -h`
+	
+	`man git-commit`
+	`man git-log`
+	
+Parcourir la documentation ici : https://git-scm.com/docs
