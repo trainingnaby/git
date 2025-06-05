@@ -1,0 +1,90 @@
+////////////////// zones de git ///////////////////////
+
+Créer un dossier tps 
+Créer un sous dossier exo1 dans tps
+se mettre sur le dossier exo1 :  `cd exo1`
+
+initialiser un depot git : 
+	`git init`
+	
+	afficher le contenu de exo1 : `ls -la` et observer et parcourer le dossier .git
+	
+	afficher les logs du repo : `git log`
+	
+	créer un fichier test.txt et y mettre comme contenu "v1" et enregistrer (utiliser votre éditeur ou en ligne de commande via :  echo "v1" > test.txt)
+
+	Ajouter le fichier test.txt dans l'index : `git add test.txt`
+	
+	Commiter le fichier test.txt : `git commit -m "test v1"`
+	
+	afficher les logs du repo : `git log`
+	
+	executer : `git log --oneline` et `git log --oneline --graph`et observer
+
+	
+Remplacer le contenu du fichier test.txt par "v2"
+
+	Executer `git status` et observer la sortie
+
+	Executer `git diff` pour comparer les changements le repertoire de travail et l'index
+
+Ajouter le fichier test.txt dans l'index : `git add test.txt`
+	
+	Executer `git status` et observer la sortie
+
+	Executer `git diff` et observer
+
+	Executer `git diff --staged` pour comparer les changements l'index et le dernier commit
+
+Remplacer le contenu du fichier test.txt par "v3"
+
+	Executer `git status` et observer
+
+	Executer `git diff` et observer
+
+	Executer `git diff --staged` et observer
+	
+Annuler les changements dans le repertoire de travail pour le fichier test.txt : `git restore test.txt`
+
+	Executer `git status` et observer
+
+	Executer `git diff` et observer
+
+	Executer `git diff --staged` et observer
+	
+Remplacer le contenu du fichier test.txt par "v4"
+	
+	Executer `git status` et observer
+
+	Executer `git diff` et observer
+
+	Executer `git diff --staged` et observer
+	
+Annuler les changements dans l'index pour le fichier test.txt : `git restore --staged test.txt`
+	Executer `git status` et observer
+
+	Executer `git diff` et observer
+
+	Executer `git diff --staged` et observer
+	
+NB : on peut annuler un add avec `git reset fichier` au lieu de `git restore --staged fichier`
+	git reset est plus générique 
+	git restore plus explicite et plus récente (depuis 2.23)
+	
+	
+Comparer le travail en cours (index & repertoire de travail) avec la derniere version :
+
+	Modifier le fichier test.txt et ajouter le à l'index
+	
+	Modifier encore le fichier test.txt 
+	
+	Executer : 
+		`git diff --staged`
+		`git diff`
+		`git diff HEAD`
+		
+	Comparer les sorties de ces trois instructions
+	
+NB :  
+	HEAD désigne le dernier commit
+	`git diff --cached` est équivalent à `git diff --staged` => la seule différence est que la derniere est la plus récente et se veut plus intuitive
