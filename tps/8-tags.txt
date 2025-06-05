@@ -1,0 +1,37 @@
+
+////////////// tags soft /////////////
+
+Ajouter un tag nommé "hello" à l'avant dernier commit 
+
+Visualiser l'historique
+
+Ajouter un synonyme "hi" à hello 
+
+Visualiser l'historique
+
+Ajouter un tag "pikachu" à l'avant dernier commit
+
+Visualiser l'historique
+
+Faire quelques commits supplementaires et visualiser les tags créés
+
+////////////// tags annotés ////////////
+
+Ajouter un tag annoté à HEAD 
+	`git tag --annotate -m "milestone 1 du projet" v1 HEAD`
+	
+Afficher l'historique
+
+Afficher les détails du tag avec `git show`
+
+Afficher la liste des tags 
+	`git tag --list`
+	
+Supprimer le tag hi 
+	`git tag --delete hi`
+	
+//////////// options avancées ////////////
+
+Afficher les tags et les filtrer sur un modéle 
+	git tag -l "v*"
+
