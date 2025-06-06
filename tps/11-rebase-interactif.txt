@@ -1,0 +1,22 @@
+//////////// rebase interactif ///////////////////
+
+Objectif :  réécrire l'historique et modifiant les commits et/ou leurs contenus 
+
+Revenir sur le projet précédent (pas sur le projet partagé !)
+
+Créer 4 supplémentaires  commits sur la branche rebase-1
+
+Se mettre en rebase interactif :
+	git rebase -i HEAD~4
+
+Tester le rebase interactif avec reword sur quelques commits impliqués dans le rebase
+
+Afficher l'historique pour valider
+
+Tester le rebase interactif avec squash 
+
+Afficher l'historique pour valider
+
+Tester avec drop
+
+Afficher l'historique pour valider
