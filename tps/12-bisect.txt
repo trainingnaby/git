@@ -1,0 +1,34 @@
+/////////////////// git bisect //////////////////
+
+Créer un dossier "bisect-tp" et y copier les fichiers qui sont le dossier bisect setup.sh et test.sh
+
+rendre les fichiers setup.sh et test.sh exécutable :
+	`chmod +x test.sh`
+	`chmod +x setup.sh`
+	
+Executer setup.sh :
+	`./setup.sh`
+	
+Afficher l'historique du repository créé 
+
+Utiliser git bisect pour trouver le commit ayant introduit le bug :
+
+	git bisect start
+	git bisect bad
+	git bisect good HEAD~9
+	
+Finir le bisect avec :
+	`git bisect reset`
+	
+	
+Recommencer cette fois en utiliser le bisect automatisé avec:
+	`git bisect run ./test.sh`
+	
+Finir le bisect avec :
+	`git bisect reset`
+	
+
+	
+
+
+	
