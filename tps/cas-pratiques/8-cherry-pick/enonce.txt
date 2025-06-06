@@ -1,0 +1,49 @@
+
+/////////// Fusionner plusieurs fonctionnalités en commits séparés dans une branche unique //////////
+
+Contexte :
+	Vous développez un tableau de bord pour une application d’analyse de données. Vous avez travaillé sur trois fonctionnalités distinctes dans trois 
+	branches locales séparées :
+
+		Branche module-auth : gestion de l’authentification (commit A)
+
+		Branche module-graph : affichage des graphiques (commit B)
+
+		Branche module-export : export en PDF (commits C1, C2)
+
+	La branche dashboard-main contient actuellement la base du tableau de bord (Z).
+	Votre objectif est de rassembler toutes ces fonctionnalités dans dashboard-main, sous forme de commits propres et séparés, sans faire de merge brut, 
+	et sans intégrer les historiques secondaires ou les commits en trop.
+
+Objectif :
+	Appliquer uniquement les modifications utiles de chaque branche dans dashboard-main, en les intégrant comme des commits bien séparés via 
+	git cherry-pick
+	
+Structure initiale :
+	                            B (module-graph)
+	                           /
+	dashboard-main (Z) --- A (module-auth)
+	                          \
+	                           C1 --- C2 (module-export)
+	
+Cible :
+	dashboard-main
+	     |
+	Z --- A' --- B' --- C'
+	
+
+Créer le projet initial avec setup.sh
+
+Placez-vous sur dashboard-main.
+
+Utilisez git cherry-pick pour appliquer les commits des branches :
+
+	A depuis module-auth
+
+	B depuis module-graph
+	
+Utiliser git rebase --squash pour appliquer C2 et C1 en un seul commit sur  dashboard-main
+
+Vérifiez que dashboard-main contient bien les trois commits, dans l’ordre voulu.
+
+Vérifiez le contenu final (présence des fichiers ou fonctions).

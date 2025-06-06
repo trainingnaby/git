@@ -1,0 +1,17 @@
+
+////////// Réinitialiser un commit local non partagé ////////////
+
+Contexte :
+	Vous avez terminé une tâche dans votre branche hotfix/login-bug, et vous avez fait un commit.
+	En relisant votre code, vous réalisez que vous avez commis des fichiers non finalisés ou des fichiers temporaires de debug que vous ne souhaitez pas 
+	inclure dans le commit.
+	Heureusement, vous n’avez pas encore pushé votre branche.
+
+Objectif :
+	Annuler le dernier commit sans perdre les modifications dans les fichiers (c’est-à-dire les retrouver dans l’espace de staging ou dans les 
+	fichiers modifiés).
+	
+
+Créer le projet initial avec setup.sh
+
+Reinitialiser le commit en gardant les modifications soit dans l'index soit dans le repertoire de travail (staging area)

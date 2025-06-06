@@ -1,0 +1,28 @@
+//////////////// Retrouver un commit écrasé par erreur (git commit --amend) /////////////////
+Contexte :
+	Vous travaillez sur un assistant de commande vocale pour un projet domotique. Vous avez fait un commit important intitulé :
+		"Implémentation de la reconnaissance vocale"
+		Ce commit contenait une première version du module speech.js.
+
+	Juste après, vous vous êtes rendu compte qu’un petit bug traînait dans le fichier, vous l’avez corrigé, et vous avez fait un :
+
+		git commit --amend
+	
+	Mais… vous vous rendez maintenant compte que vous avez accidentellement écrasé le contenu initial avec des changements qui ne fonctionnent pas du tout. 
+
+	Ce commit original ne figure plus dans l’historique. Pourtant, Git garde une trace temporaire des commits écrasés, mais vous devez le retrouver 
+	manuellement et remettre votre branche (voix-v1) dessus.
+
+Objectif :
+	Retrouver le commit perdu (celui remplacé par --amend) et refaire pointer la branche voix-v1 dessus.
+	
+Créer le projet avec le fichier setup.sh
+	
+Inspectez les objets Git récents pour retrouver le commit perdu (astuce : utilisez git reflog)
+
+Trouvez le bon identifiant (SHA) du commit original
+
+Faites pointer la branche voix-v1 sur ce commit
+
+Vérifiez que le fichier a bien récupéré son ancien contenu
+

@@ -1,0 +1,214 @@
+///////////// 1 - gitignore //////////////////
+
+# Étape 1 : Vérifier la présence dans .gitignore
+cat .gitignore
+# --> Doit contenir : config/local.env
+
+# Étape 2 : Retirer le fichier de l’index Git sans le supprimer localement
+git rm --cached config/local.env
+
+# Étape 3 : Committer la modification
+git commit -m "Retire config/local.env de l’index pour qu’il ne soit plus suivi"
+
+# Étape 4 (facultative) : Vérifier que le fichier n’est plus suivi
+git status
+# --> Ne doit plus apparaître dans la liste des fichiers modifiés, même après édition
+
+
+//////////// 2 - file casse renommage ////////////////
+
+# Étape 1 : Vérifier le nom du fichier
+ls
+# --> Doit contenir GuideInstallation.txt
+
+# Étape 2 : Renommage intermédiaire
+git mv GuideInstallation.txt guideinstallation_temp.txt
+
+# Étape 3 : Renommage final avec la bonne casse
+git mv guideinstallation_temp.txt guideinstallation.txt
+
+# Étape 4 : Commit du renommage
+git commit -m "Renomme GuideInstallation.txt en guideinstallation.txt selon la convention de nommage"
+
+# Étape 5 (facultatif) : Vérifier l'historique
+git log --follow guideinstallation.txt
+# --> Devrait montrer les commits liés à ce fichier, y compris sous son ancien nom
+
+///////////// 3 - changer date commit /////////////
+
+# Étape 1 : Vérifier l’historique (date du commit visible)
+git log --pretty=fuller
+
+# Étape 2 : Modifier la date du dernier commit
+GIT_COMMITTER_DATE="2024-05-25T10:00:00" git commit --amend --no-edit --date "2024-05-25T10:00:00"
+	ou
+	git commit --amend --date="1987-08-03"
+
+# Étape 3 : Vérifier la date modifiée
+git log --pretty=fuller
+# --> Le commit le plus récent doit maintenant avoir une date au 25 mai
+
+# Avertissement :
+# Si le commit a déjà été partagé (pushé), une réécriture comme celle-ci va nécessiter un push forcé :
+# git push --force
+
+///////////// 4 - corriger ancien commit ////////////
+
+# Étape 1 : Visualiser l’historique
+git log --oneline
+# Par exemple :
+# abcd123 (HEAD -> main) Ajout du pied de page
+# 789efab Ajout de la page d'accueil  <-- c’est celui qu’on veut modifier
+
+# Étape 2 : Lancer un rebase interactif
+git rebase -i HEAD~2
+
+# Dans l’éditeur, remplacer :
+# pick 789efab Ajout de la page d'accueil
+# par :
+# edit 789efab Ajout de la page d'accueil
+
+# Étape 3 : Modifier le fichier
+nano accueil.html
+# Corriger "wordl" → "world"
+
+# Étape 4 : Recommitter
+git add accueil.html
+git commit --amend -m "Ajout de la page d'accueil avec message corrigé"
+
+# Étape 5 : Continuer le rebase
+git rebase --continue
+
+# Étape 6 : Vérifier
+git log --oneline
+cat accueil.html
+
+
+////////////// 5 - retrouver commit (à voir le setup ne marche pas) //////////////
+
+# Étape 1 : Visualiser l'historique des HEADs récents
+git reflog
+
+# Vous devriez voir une ligne similaire à :
+# abcdef1 HEAD@{1}: commit (amend): Implémentation de la reconnaissance vocale
+
+# Étape 2 : Créer ou repositionner la branche "voix-v1" sur ce commit
+git branch -f voix-v1 abcdef1
+
+# Étape 3 : Se placer dessus
+git checkout voix-v1
+
+# Étape 4 : Vérifier que le contenu est bien celui attendu
+cat speech.js
+
+# Résultat attendu : contenu du commit original
+
+////////////// 6 scinder commit ////////////////
+
+# Étape 1 : Vérifiez l’historique
+git log --oneline
+
+# Étape 2 : Lancez le rebase interactif
+git rebase -i HEAD~1
+
+# Remplacez `pick` par `edit` sur le seul commit visible
+
+# Étape 3 : Réinitialiser le commit
+git reset HEAD^
+
+# Étape 4 : Ajouter uniquement moteur.js
+git add moteur.js
+git commit -m "Ajout du moteur du jeu"
+
+# Étape 5 : Ajouter ensuite interface.js
+git add interface.js
+git commit -m "Ajout de l'interface utilisateur"
+
+# Étape 6 : Terminer le rebase
+git rebase --continue
+
+# Étape 7 : Vérifier l’historique
+git log --oneline
+
+
+///////////// 7 commits partiels ///////////////
+
+# Étape 1 : Vérifier les modifications
+git status
+git diff
+
+# Étape 2 : Ajouter uniquement les blocs "Tache 1"
+git add -p analyse.py
+# Répondez "y" uniquement pour les blocs contenant "# Tache 1"
+# Répondez "n" pour les autres
+
+# Étape 3 : Premier commit
+git commit -m "Ajout de la logique pour la Tâche 1"
+
+# Étape 4 : Ajouter le reste
+git add analyse.py
+
+# Étape 5 : Deuxième commit
+git commit -m "Ajout de la logique pour la Tâche 2 et autres fonctions"
+
+# Étape 6 : Vérifier
+git log --oneline
+
+//////////////// 8 cherry pick //////////////////
+
+# Étape 1 : Se placer sur la branche cible
+git checkout dashboard-main
+
+# Étape 2 : Cherry-pick des commits
+git cherry-pick <sha_commit_A>    # depuis module-auth
+git cherry-pick <sha_commit_B>    # depuis module-graph
+git cherry-pick <sha_commit_C1> <sha_commit_C2>   # depuis module-export
+
+# Étape 3 : Vérifier l’historique
+git log --oneline
+
+# Étape 4 : Vérifier le contenu des fonctionnalités
+ls
+cat auth.py graph.py export.py
+
+
+///////// 9 - rebase onto ///////////
+
+git rebase --onto D E correction-typo
+
+
+//////////// 10 - inverser ordre commits ///////////
+
+# Étape 1 : Vérifier l’ordre initial
+git log -2 --oneline
+
+# Étape 2 : Lancer le rebase interactif
+git rebase -i HEAD~2
+
+# Dans l’éditeur :
+# AVANT :
+# pick abc123 Ajout de la synchronisation
+# pick def456 Ajout du thème sombre
+#
+# APRÈS :
+# pick def456 Ajout du thème sombre
+# pick abc123 Ajout de la synchronisation
+
+# Étape 3 : Sauvegarder et quitter (dans vim : `:wq`)
+
+# Étape 4 : Vérifier l’ordre final
+git log -2 --oneline
+
+//////////// 11 - Réinitialiser un commit local non partagé (soft reset) ////////////
+
+git reset --soft HEAD~1
+# ou pour les stagiaires qui veulent retravailler leur staging :
+git reset --mixed HEAD~1
+
+//////////
+
+
+
+
+
+

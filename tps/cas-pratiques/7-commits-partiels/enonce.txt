@@ -1,0 +1,31 @@
+
+////////////////  Commits partiels dans un seul fichier /////////////////
+
+Contexte :
+	Vous travaillez sur un script Python analyse.py pour automatiser l’analyse de deux tâches distinctes dans un projet de recherche.
+
+	Au fil de votre travail, vous avez ajouté plusieurs blocs de code dans un seul fichier, mais vous réalisez maintenant que vous auriez dû organiser vos commits différemment :
+
+	Les lignes concernant la "Tâche 1" (identifiables par le mot # Tache 1) auraient dû faire l’objet d’un premier commit.
+
+	Les autres lignes (Tâche 2, nettoyage, etc.) doivent être dans un second commit.
+
+	Malheureusement, tout est dans un seul fichier, donc vous ne pouvez pas faire git add fichier par fichier. Il vous faut ajouter certaines parties du 
+	fichier à la fois, pour committer ligne par ligne ou bloc par bloc.
+
+Objectif :
+	Utiliser le staging partiel pour sélectionner uniquement certaines lignes d’un fichier à inclure dans un commit.
+	Puis faire un deuxième commit avec le reste.
+	
+Excuter setup.sh pour créer le projet 
+
+Vérifiez les modifications apportées au fichier analyse.py
+
+Utilisez git add -p analyse.py pour sélectionner uniquement les blocs contenant # Tache 1
+
+Faites un premier commit
+
+Ajoutez le reste (Tâche 2) et faites un second commit
+
+Vérifiez l’historique
+

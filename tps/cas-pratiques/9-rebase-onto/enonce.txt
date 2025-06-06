@@ -1,0 +1,45 @@
+
+/////// Rebaser une correction isolée sur une autre branche (sans embarquer les travaux parallèles) ///////
+
+Contexte :
+	Vous développez un assistant d’écriture automatique.
+	Vous travaillez sur la branche correction-typo où vous avez corrigé un bug d'affichage (commits H et I).
+	Pendant ce temps, vous étiez aussi en train de travailler sur la fonctionnalité suggestions-intelligentes dans la branche suggestions (commits E, F, G).
+
+	Votre branche principale de référence s’appelle rédaction-main (commits A → B → C → D).
+
+	Problème :
+	Le fix de typo est urgent et doit être intégré dans rédaction-main sans aucune trace du travail fait sur suggestions.
+	
+	Situation actuelle :
+		                  rédaction-main
+		                        |
+		A <--- B <--- C <--- D
+		        \
+		         E <--- F <--- G       (suggestions)
+		          \
+		           H <--- I           (correction-typo)
+		                              (HEAD)
+		
+
+Objectif :
+	Rebaser uniquement les commits H et I sur D (la fin de rédaction-main), en ignorant E, F, G
+
+	Cela doit se faire avec une seule commande Git
+
+
+Astuce : utilser rebase --onto :
+
+	git rebase --onto D E correction-typo
+	
+	Explication :
+		--onto D : on veut poser les commits ailleurs, ici sur D
+		E : le commit avant H, là où la branche diverge
+		correction-typo : la branche contenant les commits à rebaser (H, I)
+		
+
+Executer setup.sh pour créer le projet initial
+
+Corriger selon le schéma attendu
+
+Vérifier les commits avecc git log --oneline --graph

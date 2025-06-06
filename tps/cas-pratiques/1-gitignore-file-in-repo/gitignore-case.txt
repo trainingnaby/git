@@ -1,0 +1,24 @@
+
+
+Contexte :
+
+	Vous travaillez dans une équipe qui développe une application web. Un fichier config/local.env contient des variables d’environnement utilisées 
+	pour tester l’application en local. Jusqu'à récemment, ce fichier était suivi par Git, mais il ne devrait jamais l’être, car il contient des informations 
+	spécifiques à chaque développeur (comme les tokens d’API locaux ou des ports personnalisés).
+
+Un autre développeur a récemment ajouté une règle dans .gitignore pour éviter que config/local.env ne soit suivi à l’avenir. 
+Cependant, comme ce fichier était déjà versionné dans le passé, il continue à être suivi par Git, malgré la règle dans .gitignore.
+
+Objectif :
+
+	Votre tâche est de faire en sorte que le fichier config/local.env ne soit plus suivi par Gi, pour que ses modifications ne soient plus prises en 
+	compte dans les commits, tout en conservant le fichier localement pour votre propre usage.
+
+
+Executer setup.sh et mettre sur le depot git créé
+
+Vérifiez que config/local.env est bien mentionné dans .gitignore
+
+Supprimez ce fichier de l'index Git tout en le gardant sur votre disque
+
+Vérifiez que Git ne détecte plus de modification sur ce fichier après un changement

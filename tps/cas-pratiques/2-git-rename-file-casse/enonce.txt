@@ -1,0 +1,27 @@
+Contexte :
+
+	Vous travaillez sur un projet collaboratif de documentation technique. L’un des contributeurs a ajouté un fichier nommé GuideInstallation.txt, 
+	mais le nom du fichier ne respecte pas la convention de nommage définie dans le projet : tous les fichiers doivent être en minuscules et sans accents, 
+	pour des raisons de compatibilité multiplateforme.
+
+	Vous avez déjà committé ce fichier dans Git. Vous devez maintenant corriger son nom en guideinstallation.txt, tout en conservant son contenu et son 
+	historique dans Git.
+
+	Cette opération est un peu plus complexe sur les systèmes comme Windows ou macOS (par défaut), où les systèmes de fichiers sont insensibles à la casse, 
+	ce qui peut empêcher Git de détecter le renommage si vous ne forcez pas la manipulation.
+
+Objectif :
+
+	Renommer un fichier déjà suivi par Git, en ne changeant que la casse des lettres, de manière à ce que Git prenne bien en compte la modification, même 
+	sur un système insensible à la casse.
+	
+Executer setup.sh pour créer le projet
+	
+Vérifiez le nom actuel du fichier (GuideInstallation.txt).
+
+Effectuez un renommage intermédiaire (vers un nom temporaire) pour forcer Git à détecter un vrai changement.
+
+Renommez ensuite vers le nom final souhaité (guideinstallation.txt).
+
+Commitez le changement de nom.
+

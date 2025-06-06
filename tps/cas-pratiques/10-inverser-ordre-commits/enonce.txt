@@ -1,0 +1,36 @@
+/////////// inverser ordre commits récents  ///////////////
+
+Contexte :
+	Vous travaillez sur une application mobile de prise de notes. Vous avez fait deux modifications, chacune dans un commit :
+
+	Vous avez ajouté la fonction de synchronisation (sync.js)
+
+	Puis vous avez ajouté un thème sombre (theme.js)
+
+	Mais après relecture, vous réalisez que, pour des raisons de clarté dans l’historique, vous préférez que le commit sur le thème apparaisse en premier, suivi de celui sur la synchronisation.
+
+	Actuellement, l’historique est dans cet ordre :
+	
+		HEAD
+		Ajout de la synchronisation
+		Ajout du thème sombre
+		
+	Vous souhaitez inverser l’ordre :
+		
+		Ajout du thème sombre
+		Ajout de la synchronisation
+		
+Objectif :
+	Réordonner les deux derniers commits sans modifier leur contenu, uniquement leur ordre d'apparition dans l’historique Git
+	
+Créer le projet avec setup.sh
+
+Exécutez git log -2 --oneline pour voir l’ordre actuel
+
+Lancez un git rebase -i HEAD~2
+
+Inversez les deux lignes dans l’éditeur
+
+Sauvegardez et quittez
+
+Vérifiez que l’ordre a été modifié

@@ -1,0 +1,29 @@
+Contexte :
+	Vous travaillez sur un projet de jeu interactif. Vous avez ajouté deux fichiers :
+
+		moteur.js : le moteur du jeu (calculs, logique de mouvement)
+
+		interface.js : l’interface utilisateur (boutons, menus, canvas)
+
+	Par erreur, vous avez ajouté les deux fichiers dans un seul commit intitulé :
+		"Ajout des fichiers initiaux"
+
+	Mais en réalité, vous vouliez committer moteur.js d’abord, puis dans un deuxième commit, ajouter interface.js. Cela aurait permis de mieux tracer les étapes du développement et de faciliter la relecture.
+
+Objectif :
+	Réécrire l’historique pour séparer ce commit en deux commits logiques : un pour moteur.js, un pour interface.js.
+	
+Executer setup.sh pour créer le projet
+
+Utilisez git rebase -i pour marquer le commit comme edit
+
+Réinitialisez les fichiers du commit en mode staging
+
+Commitez moteur.js en premier
+
+Commitez interface.js en second
+
+Terminez le rebase
+
+
+

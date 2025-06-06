@@ -1,0 +1,22 @@
+
+
+///////////// hooks ///////////////
+
+Contexte :
+	Votre équipe souhaite éviter que des TODO, FIXME, ou autres commentaires de développement temporaire ne soient oubliés et intégrés accidentellement dans 
+	le dépôt.
+	On décide donc de bloquer les commits contenant ce type de commentaires, en utilisant un hook pre-commit personnalisé.
+	
+Objectif :
+	Créer un hook local (.git/hooks/pre-commit) qui vérifie tous les fichiers stagés, et empêche le commit si une ligne contient TODO ou FIXME
+	
+Créer le projet initial avec setup.sh 
+
+Essayez de commiter le fichier sur l'index 
+
+Corriger er réessayer 
+
+
+
+
+

@@ -1,0 +1,26 @@
+Contexte :
+
+	Vous êtes responsable du contenu d’un rapport mensuel pour une équipe projet. Ce rapport (rapport_mensuel.md) devait être livré le 25 mai, 
+	mais vous avez oublié de le committer à temps. Vous venez tout juste de le faire aujourd’hui (5 juin), ce qui ne reflète pas la réalité du travail 
+	effectué.
+
+	Comme vous utilisez Git pour archiver les livrables, vous souhaitez corriger la date du dernier commit afin qu’elle corresponde à la date de 
+	livraison initialement prévue (le 25 mai).
+
+	Vous allez modifier la date du dernier commit, sans changer son contenu, et sans créer de nouveau commit.
+	
+Objectif :
+	Réécrire la date du dernier commit Git pour la faire correspondre à une date passée (25 mai).
+	
+Executer setup.sh pour créer le projet
+
+Vérifiez l’historique des commits.
+
+Modifiez la date du dernier commit en utilisant --amend et l'option --date
+
+Vérifiez que la date a bien été modifiée.
+
+(Facultatif) Expliquer pourquoi ce type d’opération peut poser problème sur des dépôts partagés.
+
+
+

@@ -1,0 +1,28 @@
+Contexte :
+	Vous travaillez sur un projet de site vitrine pour un client. Dans le fichier accueil.html, vous avez écrit :
+
+		"Welcome to our wordl!"
+
+	Ce fichier a été ajouté dans un commit que vous avez nommé Ajout de la page d'accueil.
+	Malheureusement, juste après, vous avez fait un autre commit intitulé Ajout du pied de page, sans avoir remarqué l’erreur de frappe.
+
+	Aujourd’hui, en relisant votre travail, vous remarquez la faute “wordl” au lieu de “world”, mais vous avez déjà avancé dans le projet. Vous voulez que 
+	cette correction apparaisse dans le bon commit d’origine, pas comme un nouveau commit par-dessus. Vous devez donc réécrire l’historique Git pour corriger 
+	l’erreur à sa source, en mettant aussi à jour le message du commit si nécessaire.
+	
+Objectif :
+	Corriger une faute de frappe dans un commit antérieur au dernier, en modifiant à la fois le contenu et (si vous le souhaitez) le message du commit.
+	
+Executer setup.sh pour créer le projet
+
+Repérez dans quel commit se trouve l’erreur.
+
+Lancez un rebase interactif sur les derniers commits (par exemple les deux derniers).
+
+Marquez le commit fautif comme "edit" ou "reword" selon votre besoin.
+
+Corrigez le fichier.
+
+Rejouez le commit modifié avec git commit --amend.
+
+Terminez le rebase avec git rebase --continue.
