@@ -1,0 +1,85 @@
+//////////////// création de branche ////////////////
+
+Créer une nouvelle branche "feature1" sur le projet :
+	`git branch feature1`
+
+Lister les branches :
+	`git branch`
+	
+se mettre sur la branche feature1
+	git checkout feature1
+	
+NB : pour créer et basculer sur une branche => `git checkout -b feature1`
+
+Afficher le nom de la branche courante :
+	`git status`
+	
+Renommer la branche en feature-1 : 
+	`git branch --move feature1 feature-1`
+	
+Pour supprimer une branche : `git branch --delete <nom_branche>`
+
+Ajouter un nouveau fichier test2.txt et commiter sur la branche feature-1
+	faire deux autres commits sur des changements sur test2.txt sur la branche feature-1
+
+Afficher l'historique et observer
+
+Revenir sur la branche main et afficher l'historique et comparer avec l'historique de la branche feature-1
+
+Ajouter 2 commits sur la branche main en modifiant le fichier test.txt
+
+Afficher les différences entre la branche main et la branche feature avec l'aide de git diff et avec gitg
+
+
+///////////////// fusion de branches classique ///////////////
+
+Se mettre sur la branche main
+
+Vérifier qu'il n'y a aucun changement dans le repertoire de travail et l'index
+
+Merger feature-1 sur main
+
+	`git merge feature-1`
+	
+Afficher l'historique avec `git log --oneline --graph` et gitg
+
+////////////// fusion de branches Fast-Forward /////////////////
+
+Ajouter deux modifications et commits sur la branche main
+
+Créer une branche feature-2 à partir de main et y basculer
+
+Créer un fichier test3.txt avec du contenu quelconque et commiter 
+
+Ajouter deux autres commits sur la branche feature-2 en modifiant le fichier test3.txt
+
+Afficher l'historique avec `git log --oneline --graph` et gitg
+
+Basculer sur la branche main et afficher l'historique avec gitg
+
+Merger la branche feature-2 sur main :
+	 git merge feature-2
+	 
+Afficher et observer l'historique avec `git log --oneline --graph` et gitg
+
+//////////// conflits de merge /////////////////
+
+Créer et basculer sur une nouvelle branche feature-3 à partir de main
+
+Modifier le fichier test.txt en ajoutant une nouvelle ligne et comitter
+
+Ajouter un nouveau fichier test4.txt avec un contenu quelconque et comitter
+
+Se mettre mettre sur la branche main et modifier le fichier test.txt en ajoutant une nouvelle ligne
+
+Modifier dans la branche le fichier test3.txt et comitter
+
+Merger la branche feature-3 sur main et observer la sortie console du merge et de `git status`
+
+Ouvrir le fichier en conflit et résoudre les différences apportées par les deux branches et enregistrer
+
+Finir le merge en ajoutant le fichier à l'index et en le commitant
+
+NB : Aprés résolution des conflits, on peut executer de maniére plus explicite `git merge --continue`pour terminer le merge
+
+Tester un merge impliquant plusieurs fichiers en conflit et finir le merge en `git merge --continue`
