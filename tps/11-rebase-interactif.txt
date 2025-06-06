@@ -4,7 +4,13 @@ Objectif :  réécrire l'historique et modifiant les commits et/ou leurs contenu
 
 Revenir sur le projet précédent (pas sur le projet partagé !)
 
-Créer 4 supplémentaires  commits sur la branche rebase-1
+Créer 4 supplémentaires  commits sur la branche rebase-1 : 
+
+1 commit sur un nouveau fichier intercatif1.txt
+1 commit supplementaire sur le fichier intercatif1.txt
+1 commit sur un nouveau fichier intercatif2.txt
+1 commit sur un nouveau fichier intercatif3.txt
+
 
 Se mettre en rebase interactif :
 	git rebase -i HEAD~4
