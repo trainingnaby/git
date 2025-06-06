@@ -1,0 +1,31 @@
+
+Système de versioning
+Système centralisé vs decentralisé
+zones de git
+travail en local :
+	modification 
+	ajout / ajout en patch avec git add -p (UPDATE utiliser plutot git add -e pour plus simplicité)
+	commit / commit sur plusieurs lignes
+	diff
+	log
+Modéle de données de git
+	tree / blob
+	
+Exploration des objets git 
+	git cate-file -p commit|tree
+	git hash-object fichier
+
+modification de commits
+	git commit --amend
+	git revert commit
+	git reset -soft|mixed|hard commit
+	
+Gestion des dossiers avec git
+	git mv et git rm
+	
+Aide git avec git help
+
+ignorer des fichiers sur le versioning / ignorer un fichier déja versionné
+
+Tags
+	
