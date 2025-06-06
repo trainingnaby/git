@@ -1,6 +1,6 @@
 #!/bin/bash
 EXPECTED="3"
-ACTUAL=$(python compute.py)
+ACTUAL=$(py compute.py)
 
 if [ "$ACTUAL" == "$EXPECTED" ]; then
   echo "Test OK : $ACTUAL"
