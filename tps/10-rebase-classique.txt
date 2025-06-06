@@ -7,5 +7,8 @@ Créer une branche rebase-1 depuis la branche main
 Rester sur la branche main et créer quelques commits sur le fichier test.txt
 
 Basculer sur la branche rebase-1 et créer quelques commits sur un fichier rebase.txt
+
+"Rebaser" la branche rebase-1 sur la branche main :
+	`git rebase main`
 	
 Afficher l'historique sur gitg et observer les commits
